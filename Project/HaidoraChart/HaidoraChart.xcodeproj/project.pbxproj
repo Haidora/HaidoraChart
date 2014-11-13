@@ -1,0 +1,487 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AB34870A1A0B07CC0026E07A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3487091A0B07CC0026E07A /* main.m */; };
+		AB34870D1A0B07CC0026E07A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB34870C1A0B07CC0026E07A /* AppDelegate.m */; };
+		AB3487101A0B07CC0026E07A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB34870F1A0B07CC0026E07A /* ViewController.m */; };
+		AB3487131A0B07CC0026E07A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB3487111A0B07CC0026E07A /* Main.storyboard */; };
+		AB3487151A0B07CC0026E07A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB3487141A0B07CC0026E07A /* Images.xcassets */; };
+		AB3487181A0B07CC0026E07A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB3487161A0B07CC0026E07A /* LaunchScreen.xib */; };
+		AB3487241A0B07CD0026E07A /* HaidoraChartTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3487231A0B07CD0026E07A /* HaidoraChartTests.m */; };
+		AB3487321A0B08140026E07A /* HDCurveChart.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3487311A0B08140026E07A /* HDCurveChart.m */; };
+		AB3487361A0B15FB0026E07A /* HDChartLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3487351A0B15FB0026E07A /* HDChartLabel.m */; };
+		AB3487391A0B1A7F0026E07A /* HDCurveChartDataItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AB3487381A0B1A7F0026E07A /* HDCurveChartDataItem.m */; };
+		AB34873C1A0B1B7C0026E07A /* HDCurveChartData.m in Sources */ = {isa = PBXBuildFile; fileRef = AB34873B1A0B1B7C0026E07A /* HDCurveChartData.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AB34871E1A0B07CD0026E07A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB3486FC1A0B07CC0026E07A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AB3487031A0B07CC0026E07A;
+			remoteInfo = HaidoraChart;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AB3487041A0B07CC0026E07A /* HaidoraChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HaidoraChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB3487081A0B07CC0026E07A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB3487091A0B07CC0026E07A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AB34870B1A0B07CC0026E07A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AB34870C1A0B07CC0026E07A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AB34870E1A0B07CC0026E07A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		AB34870F1A0B07CC0026E07A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		AB3487121A0B07CC0026E07A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AB3487141A0B07CC0026E07A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		AB3487171A0B07CC0026E07A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		AB34871D1A0B07CD0026E07A /* HaidoraChartTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HaidoraChartTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB3487221A0B07CD0026E07A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB3487231A0B07CD0026E07A /* HaidoraChartTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HaidoraChartTests.m; sourceTree = "<group>"; };
+		AB3487301A0B08140026E07A /* HDCurveChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDCurveChart.h; sourceTree = "<group>"; };
+		AB3487311A0B08140026E07A /* HDCurveChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDCurveChart.m; sourceTree = "<group>"; };
+		AB3487341A0B15FB0026E07A /* HDChartLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDChartLabel.h; sourceTree = "<group>"; };
+		AB3487351A0B15FB0026E07A /* HDChartLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDChartLabel.m; sourceTree = "<group>"; };
+		AB3487371A0B1A7F0026E07A /* HDCurveChartDataItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDCurveChartDataItem.h; sourceTree = "<group>"; };
+		AB3487381A0B1A7F0026E07A /* HDCurveChartDataItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDCurveChartDataItem.m; sourceTree = "<group>"; };
+		AB34873A1A0B1B7C0026E07A /* HDCurveChartData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDCurveChartData.h; sourceTree = "<group>"; };
+		AB34873B1A0B1B7C0026E07A /* HDCurveChartData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDCurveChartData.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AB3487011A0B07CC0026E07A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB34871A1A0B07CD0026E07A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AB3486FB1A0B07CC0026E07A = {
+			isa = PBXGroup;
+			children = (
+				AB34872D1A0B07D80026E07A /* Resource */,
+				AB34872E1A0B07D80026E07A /* Source */,
+				AB3487061A0B07CC0026E07A /* HaidoraChart */,
+				AB3487201A0B07CD0026E07A /* HaidoraChartTests */,
+				AB3487051A0B07CC0026E07A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AB3487051A0B07CC0026E07A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AB3487041A0B07CC0026E07A /* HaidoraChart.app */,
+				AB34871D1A0B07CD0026E07A /* HaidoraChartTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AB3487061A0B07CC0026E07A /* HaidoraChart */ = {
+			isa = PBXGroup;
+			children = (
+				AB34870B1A0B07CC0026E07A /* AppDelegate.h */,
+				AB34870C1A0B07CC0026E07A /* AppDelegate.m */,
+				AB34870E1A0B07CC0026E07A /* ViewController.h */,
+				AB34870F1A0B07CC0026E07A /* ViewController.m */,
+				AB3487111A0B07CC0026E07A /* Main.storyboard */,
+				AB3487141A0B07CC0026E07A /* Images.xcassets */,
+				AB3487161A0B07CC0026E07A /* LaunchScreen.xib */,
+				AB3487071A0B07CC0026E07A /* Supporting Files */,
+			);
+			path = HaidoraChart;
+			sourceTree = "<group>";
+		};
+		AB3487071A0B07CC0026E07A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AB3487081A0B07CC0026E07A /* Info.plist */,
+				AB3487091A0B07CC0026E07A /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AB3487201A0B07CD0026E07A /* HaidoraChartTests */ = {
+			isa = PBXGroup;
+			children = (
+				AB3487231A0B07CD0026E07A /* HaidoraChartTests.m */,
+				AB3487211A0B07CD0026E07A /* Supporting Files */,
+			);
+			path = HaidoraChartTests;
+			sourceTree = "<group>";
+		};
+		AB3487211A0B07CD0026E07A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AB3487221A0B07CD0026E07A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AB34872D1A0B07D80026E07A /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resource;
+			path = ../../Resource;
+			sourceTree = "<group>";
+		};
+		AB34872E1A0B07D80026E07A /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				AB3487331A0B156E0026E07A /* Core */,
+				AB34872F1A0B07FC0026E07A /* Curve */,
+			);
+			name = Source;
+			path = ../../Source;
+			sourceTree = "<group>";
+		};
+		AB34872F1A0B07FC0026E07A /* Curve */ = {
+			isa = PBXGroup;
+			children = (
+				AB3487301A0B08140026E07A /* HDCurveChart.h */,
+				AB3487311A0B08140026E07A /* HDCurveChart.m */,
+				AB34873A1A0B1B7C0026E07A /* HDCurveChartData.h */,
+				AB34873B1A0B1B7C0026E07A /* HDCurveChartData.m */,
+				AB3487371A0B1A7F0026E07A /* HDCurveChartDataItem.h */,
+				AB3487381A0B1A7F0026E07A /* HDCurveChartDataItem.m */,
+			);
+			path = Curve;
+			sourceTree = "<group>";
+		};
+		AB3487331A0B156E0026E07A /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				AB3487341A0B15FB0026E07A /* HDChartLabel.h */,
+				AB3487351A0B15FB0026E07A /* HDChartLabel.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AB3487031A0B07CC0026E07A /* HaidoraChart */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB3487271A0B07CD0026E07A /* Build configuration list for PBXNativeTarget "HaidoraChart" */;
+			buildPhases = (
+				AB3487001A0B07CC0026E07A /* Sources */,
+				AB3487011A0B07CC0026E07A /* Frameworks */,
+				AB3487021A0B07CC0026E07A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HaidoraChart;
+			productName = HaidoraChart;
+			productReference = AB3487041A0B07CC0026E07A /* HaidoraChart.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AB34871C1A0B07CD0026E07A /* HaidoraChartTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB34872A1A0B07CD0026E07A /* Build configuration list for PBXNativeTarget "HaidoraChartTests" */;
+			buildPhases = (
+				AB3487191A0B07CD0026E07A /* Sources */,
+				AB34871A1A0B07CD0026E07A /* Frameworks */,
+				AB34871B1A0B07CD0026E07A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AB34871F1A0B07CD0026E07A /* PBXTargetDependency */,
+			);
+			name = HaidoraChartTests;
+			productName = HaidoraChartTests;
+			productReference = AB34871D1A0B07CD0026E07A /* HaidoraChartTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AB3486FC1A0B07CC0026E07A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = Haidora;
+				TargetAttributes = {
+					AB3487031A0B07CC0026E07A = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					AB34871C1A0B07CD0026E07A = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = AB3487031A0B07CC0026E07A;
+					};
+				};
+			};
+			buildConfigurationList = AB3486FF1A0B07CC0026E07A /* Build configuration list for PBXProject "HaidoraChart" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AB3486FB1A0B07CC0026E07A;
+			productRefGroup = AB3487051A0B07CC0026E07A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AB3487031A0B07CC0026E07A /* HaidoraChart */,
+				AB34871C1A0B07CD0026E07A /* HaidoraChartTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AB3487021A0B07CC0026E07A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB3487131A0B07CC0026E07A /* Main.storyboard in Resources */,
+				AB3487181A0B07CC0026E07A /* LaunchScreen.xib in Resources */,
+				AB3487151A0B07CC0026E07A /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB34871B1A0B07CD0026E07A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AB3487001A0B07CC0026E07A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB3487321A0B08140026E07A /* HDCurveChart.m in Sources */,
+				AB3487101A0B07CC0026E07A /* ViewController.m in Sources */,
+				AB34873C1A0B1B7C0026E07A /* HDCurveChartData.m in Sources */,
+				AB3487361A0B15FB0026E07A /* HDChartLabel.m in Sources */,
+				AB34870D1A0B07CC0026E07A /* AppDelegate.m in Sources */,
+				AB34870A1A0B07CC0026E07A /* main.m in Sources */,
+				AB3487391A0B1A7F0026E07A /* HDCurveChartDataItem.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB3487191A0B07CD0026E07A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB3487241A0B07CD0026E07A /* HaidoraChartTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AB34871F1A0B07CD0026E07A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AB3487031A0B07CC0026E07A /* HaidoraChart */;
+			targetProxy = AB34871E1A0B07CD0026E07A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AB3487111A0B07CC0026E07A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB3487121A0B07CC0026E07A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AB3487161A0B07CC0026E07A /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB3487171A0B07CC0026E07A /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AB3487251A0B07CD0026E07A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AB3487261A0B07CD0026E07A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AB3487281A0B07CD0026E07A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HaidoraChart/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AB3487291A0B07CD0026E07A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HaidoraChart/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		AB34872B1A0B07CD0026E07A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HaidoraChartTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HaidoraChart.app/HaidoraChart";
+			};
+			name = Debug;
+		};
+		AB34872C1A0B07CD0026E07A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = HaidoraChartTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HaidoraChart.app/HaidoraChart";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AB3486FF1A0B07CC0026E07A /* Build configuration list for PBXProject "HaidoraChart" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB3487251A0B07CD0026E07A /* Debug */,
+				AB3487261A0B07CD0026E07A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB3487271A0B07CD0026E07A /* Build configuration list for PBXNativeTarget "HaidoraChart" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB3487281A0B07CD0026E07A /* Debug */,
+				AB3487291A0B07CD0026E07A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AB34872A1A0B07CD0026E07A /* Build configuration list for PBXNativeTarget "HaidoraChartTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB34872B1A0B07CD0026E07A /* Debug */,
+				AB34872C1A0B07CD0026E07A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AB3486FC1A0B07CC0026E07A /* Project object */;
+}
