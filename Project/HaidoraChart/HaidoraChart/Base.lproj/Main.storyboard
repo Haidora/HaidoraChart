@@ -16,19 +16,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ljv-go-Tpv" customClass="HDCurveChart">
-                                <rect key="frame" x="0.0" y="20" width="600" height="300"/>
-                                <color key="backgroundColor" red="0.66666666666666663" green="0.50285881489128958" blue="0.51037861698631026" alpha="1" colorSpace="calibratedRGB"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ljv-go-Tpv" customClass="HDCurveChart">
+                                <rect key="frame" x="0.0" y="20" width="700" height="270"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="aID-zv-g9X"/>
+                                    <constraint firstAttribute="height" constant="270" id="IJ0-yV-OPW"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Ljv-go-Tpv" secondAttribute="trailing" id="53w-ih-gXX"/>
-                            <constraint firstItem="Ljv-go-Tpv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="gAO-9E-j2Q"/>
-                            <constraint firstItem="Ljv-go-Tpv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="k24-mQ-5Gb"/>
+                            <constraint firstAttribute="trailing" secondItem="Ljv-go-Tpv" secondAttribute="trailing" id="1oF-fA-sfv"/>
+                            <constraint firstItem="Ljv-go-Tpv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="XGh-Tp-skD"/>
+                            <constraint firstItem="Ljv-go-Tpv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="uFk-gT-M9o"/>
                         </constraints>
                     </view>
                     <connections>
@@ -37,7 +37,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="36" y="138"/>
+            <point key="canvasLocation" x="-209" y="136"/>
         </scene>
     </scenes>
 </document>

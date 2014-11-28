@@ -21,9 +21,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    _chartView.yValueMin = 45;
-    _chartView.yValueMax = 120;
-    _chartView.yStepNum = _chartView.yValueMax - _chartView.yValueMin;
+    _chartView.xValueMin = 0;
+    _chartView.xValueMax = 120;
+    _chartView.xStepNum = 120;
     _chartView.xShowLabel = ^(NSInteger index) {
         if (index % 12 == 0)
         {
@@ -34,8 +34,11 @@
             return NO;
         }
     };
-    _chartView.getXLabel = ^(NSInteger index) { return [NSString stringWithFormat:@"%ld年", index]; };
+    _chartView.getXLabel = ^(NSInteger index) { return [NSString stringWithFormat:@"%ld", index]; };
 
+    _chartView.yValueMin = 0;
+    _chartView.yValueMax = 40;
+    _chartView.yStepNum = 40;
     _chartView.yShowLabel = ^(NSInteger index) {
         if (index % 5 == 0)
         {
@@ -47,58 +50,61 @@
         }
         return YES;
     };
-    _chartView.getYLabel =
-        ^(NSInteger index) { return [NSString stringWithFormat:@"%ld", index + 45]; };
+    _chartView.getYLabel = ^(NSInteger index) { return [NSString stringWithFormat:@"%ld", index]; };
 
     // curve 1
     HDCurveChartData *data1 = [[HDCurveChartData alloc] init];
-    data1.chartStyle = HDChartStyleCurve;
-    //    HDCurveChartDataItem *item = [HDCurveChartDataItem dataItemWithX:0 withY:48.2];
-    //    [data1.points addObject:item];
-    //    item = [HDCurveChartDataItem dataItemWithX:7 withY:18.9];
-    //    [data1.points addObject:item];
-    //    item = [HDCurveChartDataItem dataItemWithX:8 withY:19.9];
-    //    [data1.points addObject:item];
-    //    item = [HDCurveChartDataItem dataItemWithX:9 withY:21.0];
-    //    [data1.points addObject:item];
-    //    item = [HDCurveChartDataItem dataItemWithX:10 withY:22.1];
-    //    [data1.points addObject:item];
-    //    item = [HDCurveChartDataItem dataItemWithX:11 withY:23.3];
-    //    [data1.points addObject:item];
-    NSArray *datas = [NSArray arrayWithObjects:@{ @"x" : @(0),
-                                                  @"y" : @(48.2) },
-                                               @{ @"x" : @(1),
-                                                  @"y" : @(52.1) },
-                                               @{ @"x" : @(2),
-                                                  @"y" : @(55) },
-                                               @{ @"x" : @(3),
-                                                  @"y" : @(58) },
-                                               @{ @"x" : @(4),
-                                                  @"y" : @(61) },
-                                               @{ @"x" : @(5),
-                                                  @"y" : @(62) },
-                                               @{ @"x" : @(6),
-                                                  @"y" : @(65) },
-                                               @{ @"x" : @(7),
-                                                  @"y" : @(67) },
-                                               @{ @"x" : @(8),
-                                                  @"y" : @(68) },
-                                               @{ @"x" : @(9),
-                                                  @"y" : @(70) },
-                                               @{ @"x" : @(10),
-                                                  @"y" : @(71) },
-                                               @{ @"x" : @(11),
-                                                  @"y" : @(72) },
-                                               @{ @"x" : @(12),
-                                                  @"y" : @(73) },
-                                               @{ @"x" : @(24),
-                                                  @"y" : @(84) },
-                                               @{ @"x" : @(36),
-                                                  @"y" : @(91) },
-                                               @{ @"x" : @(48),
-                                                  @"y" : @(99) },
-                                               @{ @"x" : @(60),
-                                                  @"y" : @(105) },
+    data1.chartStyle = HDChartStyleLine;
+    NSArray *datas = [NSArray arrayWithObjects:@{ @"x" : @(1.0),
+                                                  @"y" : @(3.6) },
+                                               @{ @"x" : @(2.0),
+                                                  @"y" : @(4.3) },
+                                               @{ @"x" : @(3.0),
+                                                  @"y" : @(5.0) },
+                                               @{ @"x" : @(4.0),
+                                                  @"y" : @(5.7) },
+                                               @{ @"x" : @(5.0),
+                                                  @"y" : @(6.3) },
+                                               @{ @"x" : @(6.0),
+                                                  @"y" : @(6.9) },
+                                               @{ @"x" : @(8.0),
+                                                  @"y" : @(7.8) },
+                                               @{ @"x" : @(10.0),
+                                                  @"y" : @(8.6) },
+                                               @{ @"x" : @(12.0),
+                                                  @"y" : @(9.1) },
+                                               @{ @"x" : @(15.0),
+                                                  @"y" : @(9.8) },
+                                               @{ @"x" : @(18.0),
+                                                  @"y" : @(10.3) },
+                                               @{ @"x" : @(21.0),
+                                                  @"y" : @(10.8) },
+                                               @{ @"x" : @(24.0),
+                                                  @"y" : @(11.2) },
+                                               @{ @"x" : @(30.0),
+                                                  @"y" : @(12.1) },
+                                               @{ @"x" : @(36.0),
+                                                  @"y" : @(13.0) },
+                                               @{ @"x" : @(42.0),
+                                                  @"y" : @(13.9) },
+                                               @{ @"x" : @(48.0),
+                                                  @"y" : @(14.8) },
+                                               @{ @"x" : @(54.0),
+                                                  @"y" : @(15.7) },
+                                               @{ @"x" : @(60.0),
+                                                  @"y" : @(16.6) },
+                                               @{ @"x" : @(66.0),
+                                                  @"y" : @(17.4) },
+                                               @{ @"x" : @(72.0),
+                                                  @"y" : @(18.4) },
+                                               @{ @"x" : @(84.0),
+                                                  @"y" : @(20.2) },
+                                               @{ @"x" : @(96.0),
+                                                  @"y" : @(22.2) },
+                                               @{ @"x" : @(108.0),
+                                                  @"y" : @(24.3) },
+                                               @{ @"x" : @(120.0),
+                                                  @"y" : @(26.8) },
                                                nil];
 
     [datas enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -109,26 +115,68 @@
     }];
 
     // curve 1
-    //    HDCurveChartData *data2 = [[HDCurveChartData alloc] init];
-    //    data2.chartStyle = HDChartStyleLine;
-    //    CGFloat margin2 = 0;
-    //
-    //    HDCurveChartDataItem *item2 = [HDCurveChartDataItem dataItemWithX:0 withY:0];
-    //    [data2.points addObject:item2];
-    //    item2 = [HDCurveChartDataItem dataItemWithX:12 + margin2 withY:5 - margin2];
-    //    [data2.points addObject:item2];
-    //    item2 = [HDCurveChartDataItem dataItemWithX:20 + margin2 withY:10 - margin2];
-    //    [data2.points addObject:item2];
-    //    item2 = [HDCurveChartDataItem dataItemWithX:36 + margin2 withY:25 - margin2];
-    //    [data2.points addObject:item2];
-    //    item2 = [HDCurveChartDataItem dataItemWithX:48 + margin2 withY:45 - margin2];
-    //    [data2.points addObject:item2];
-    //    item2 = [HDCurveChartDataItem dataItemWithX:60 + margin2 withY:50 - margin2];
-    //    [data2.points addObject:item2];
+    HDCurveChartData *data2 = [[HDCurveChartData alloc] init];
+    data2.chartStyle = HDChartStyleLine;
+    NSArray *dataE = [NSArray arrayWithObjects:@{ @"x" : @(1.0),
+                                                  @"y" : @(5.0) },
+                                               @{ @"x" : @(2.0),
+                                                  @"y" : @(6.0) },
+                                               @{ @"x" : @(3.0),
+                                                  @"y" : @(6.9) },
+                                               @{ @"x" : @(4.0),
+                                                  @"y" : @(7.6) },
+                                               @{ @"x" : @(5.0),
+                                                  @"y" : @(8.2) },
+                                               @{ @"x" : @(6.0),
+                                                  @"y" : @(8.8) },
+                                               @{ @"x" : @(8.0),
+                                                  @"y" : @(9.8) },
+                                               @{ @"x" : @(10.0),
+                                                  @"y" : @(10.6) },
+                                               @{ @"x" : @(12.0),
+                                                  @"y" : @(11.3) },
+                                               @{ @"x" : @(15.0),
+                                                  @"y" : @(12.0) },
+                                               @{ @"x" : @(18.0),
+                                                  @"y" : @(12.7) },
+                                               @{ @"x" : @(21.0),
+                                                  @"y" : @(13.3) },
+                                               @{ @"x" : @(24.0),
+                                                  @"y" : @(14.0) },
+                                               @{ @"x" : @(30.0),
+                                                  @"y" : @(15.3) },
+                                               @{ @"x" : @(36.0),
+                                                  @"y" : @(16.4) },
+                                               @{ @"x" : @(42.0),
+                                                  @"y" : @(17.6) },
+                                               @{ @"x" : @(48.0),
+                                                  @"y" : @(18.7) },
+                                               @{ @"x" : @(54.0),
+                                                  @"y" : @(19.9) },
+                                               @{ @"x" : @(60.0),
+                                                  @"y" : @(21.1) },
+                                               @{ @"x" : @(66.0),
+                                                  @"y" : @(22.3) },
+                                               @{ @"x" : @(72.0),
+                                                  @"y" : @(23.6) },
+                                               @{ @"x" : @(84.0),
+                                                  @"y" : @(26.5) },
+                                               @{ @"x" : @(96.0),
+                                                  @"y" : @(30.0) },
+                                               @{ @"x" : @(108.0),
+                                                  @"y" : @(34.0) },
+                                               @{ @"x" : @(120.0),
+                                                  @"y" : @(38.7) },
+                                               nil];
 
-    _chartView.chartDatas = @[ data1 ];
+    [dataE enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        NSDictionary *dic = obj;
+        HDCurveChartDataItem *item = [HDCurveChartDataItem dataItemWithX:[dic[@"x"] doubleValue]
+                                                                   withY:[dic[@"y"] doubleValue]];
+        [data2.points addObject:item];
+    }];
 
-    //    [_chartView strokeChart];
+    _chartView.chartDatas = @[ data1, data2 ];
 }
 
 - (void)didReceiveMemoryWarning

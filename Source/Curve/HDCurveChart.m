@@ -20,6 +20,10 @@
 @property (nonatomic, strong) NSMutableArray *chartPath;
 @property (nonatomic, strong) NSMutableArray *pointPath;
 
+//@property (nonatomic, strong) NSMutableArray *chartFillArray;
+
+@property (nonatomic, strong) UIColor *fillColor;
+
 @end
 
 @implementation HDCurveChart
@@ -56,12 +60,16 @@
 
 - (void)commonInit
 {
+    self.backgroundColor = [UIColor whiteColor];
     _chartLineArray = [NSMutableArray new];
     _chartPointArray = [NSMutableArray new];
+//    _chartFillArray = [NSMutableArray new];
 
     _showCoordinateAxis = YES;
-    _axisColor = [UIColor colorWithRed:0.4f green:0.4f blue:0.4f alpha:1.f];
+    _axisColor = [UIColor colorWithRed:0.533 green:0.533 blue:0.533 alpha:1];
     _axisWidth = 1;
+
+    _fillColor = [UIColor colorWithRed:0.918 green:0.918 blue:0.918 alpha:0.3];
 
     _chartMargin = 15;
 
@@ -84,10 +92,22 @@
         _chartDatas = chartDatas;
         [_chartLineArray makeObjectsPerformSelector:@selector(removeFromSuperlayer)];
         [_chartPointArray makeObjectsPerformSelector:@selector(removeFromSuperlayer)];
+//        [_chartFillArray makeObjectsPerformSelector:@selector(removeFromSuperlayer)];
 
         // add lines
         for (HDCurveChartData *chartData in _chartDatas)
         {
+
+            // create Fill Layer
+//            CAShapeLayer *chartFillLayer = [CAShapeLayer layer];
+//            chartFillLayer.lineCap = kCALineCapButt;
+//            chartFillLayer.lineJoin = kCALineJoinMiter;
+//            chartFillLayer.fillColor = [[UIColor clearColor] CGColor];
+//            chartFillLayer.lineWidth = chartData.lineWidth;
+//            chartFillLayer.strokeEnd = 0.0;
+//            [self.layer addSublayer:chartFillLayer];
+//            [_chartFillArray addObject:chartFillLayer];
+
             CAShapeLayer *chartLineLayer = [CAShapeLayer layer];
             chartLineLayer.lineCap = kCALineCapButt;
             chartLineLayer.lineJoin = kCALineJoinMiter;
@@ -166,6 +186,7 @@
         // draw x axis separator
         CGFloat xStepHeight = 2;
         CGFloat xStepValue = (_xValueMax - _xValueMin) / _xStepNum;
+        CGFloat xStepWidth = (CGRectGetWidth(self.bounds) - 2 * _chartMargin) / _xStepNum;
         for (NSUInteger i = 0; i < _xStepNum + 1; i++)
         {
             CGFloat postionX = [self postionXForValue:xStepValue * i + _xValueMin
@@ -196,6 +217,16 @@
             CGContextMoveToPoint(context, postionX, bottomLeftY);
             CGContextAddLineToPoint(context, postionX, bottomLeftY - xStepHeight);
             CGContextStrokePath(context);
+            // fill background
+            if (i % 2 == 0)
+            {
+                CGContextSetFillColorWithColor(context, _fillColor.CGColor);
+                CGContextFillRect(
+                    context, CGRectMake(postionX, topLeftY, xStepWidth, bottomLeftY - topLeftY));
+                CGContextStrokePath(context);
+            }
+
+            CGContextSetStrokeColorWithColor(context, _axisColor.CGColor);
         }
         // draw y axis separator
         CGFloat yStepValue = (_yValueMax - _yValueMin) / _yStepNum;
@@ -243,6 +274,7 @@
         HDCurveChartData *chartData = _chartDatas[lineIndex];
         CAShapeLayer *chartLineLayer = _chartLineArray[lineIndex];
         //        CAShapeLayer *pointLayer = _chartPointArray[lineIndex];
+//        CAShapeLayer *chartFillLayer = _chartFillArray[lineIndex];
 
         UIGraphicsBeginImageContext(self.bounds.size);
 
@@ -443,8 +475,54 @@
             chartLineLayer.strokeColor = chartData.linColor.CGColor;
         }
         [progressLine stroke];
-
         chartLineLayer.path = progressLine.CGPath;
+
+        // fill layer
+//        HDCurveChartDataItem *startItem = chartData.points[0];
+//        HDCurveChartDataItem *lastItem = chartData.points[pointCount - 1];
+//        CGFloat startX =
+//            [self postionXForValue:startItem.x minValue:_xValueMin maxValue:_xValueMax];
+//        CGFloat startY =
+//            [self postionYForValue:startItem.y minValue:_yValueMin maxValue:_yValueMax];
+//        CGFloat lastX = [self postionXForValue:lastItem.x minValue:_xValueMin maxValue:_xValueMax];
+//
+//        UIBezierPath *fillPath = [UIBezierPath bezierPath];
+//        for (NSUInteger i = 0; i < pointCount; i++)
+//        {
+//            HDCurveChartDataItem *item = chartData.points[i];
+//            x = [self postionXForValue:item.x minValue:_xValueMin maxValue:_xValueMax];
+//            y = [self postionYForValue:item.y minValue:_yValueMin maxValue:_yValueMax];
+//            if (i == 0)
+//            {
+//                [fillPath moveToPoint:CGPointMake(x, y)];
+//            }
+//            else
+//            {
+//                [fillPath addLineToPoint:CGPointMake(x, y)];
+//            }
+//        }
+//
+//        [fillPath
+//            addLineToPoint:CGPointMake(
+//                               lastX,
+//                               [self postionYForValue:0 minValue:_yValueMin maxValue:_yValueMax])];
+//        [fillPath
+//            addLineToPoint:CGPointMake(
+//                               startX,
+//                               [self postionYForValue:0 minValue:_yValueMin maxValue:_yValueMax])];
+//        [fillPath addLineToPoint:CGPointMake(startX, startY)];
+//
+//        [fillPath addLineToPoint:CGPointMake(startX, startY)];
+//        [fillPath stroke];
+
+        //        chartFillLayer.frame = self.bounds;
+        //        chartFillLayer.path = fillPath.CGPath;
+        //        chartFillLayer.lineWidth = 0;
+        //        chartFillLayer.lineJoin = kCALineJoinRound;
+        //        if (chartData.linColor)
+        //        {
+        //            chartFillLayer.fillColor = chartData.linColor.CGColor;
+        //        }
 
         [CATransaction begin];
         CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
@@ -456,6 +534,9 @@
 
         [chartLineLayer addAnimation:pathAnimation forKey:@"strokeEndAnimation"];
         chartLineLayer.strokeEnd = 1.0;
+
+//        [chartFillLayer addAnimation:pathAnimation forKey:@"strokeEndAnimation"];
+        //        chartFillLayer.strokeEnd = 1.0;
 
         [CATransaction commit];
         UIGraphicsEndImageContext();

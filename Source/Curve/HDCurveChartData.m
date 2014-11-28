@@ -22,7 +22,7 @@
 
 - (void)setDefaultValues
 {
-    _linColor = [UIColor colorWithRed:0.000 green:0.671 blue:0.953 alpha:1];
+    _linColor = [UIColor colorWithRed:0.973 green:0.655 blue:0.667 alpha:0.5];
     _lineWidth = 1.0f;
     _points = [NSMutableArray array];
 }
