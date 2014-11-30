@@ -270,7 +270,7 @@
                                  inRect:CGRectMake(bottomLeftX - 16, postionY - 5, 15, 10)
                                    font:[UIFont systemFontOfSize:7]];
             }
-            if (_yShowGraduation)
+            if (showYGraduation)
             {
                 CGContextMoveToPoint(context, bottomLeftX, postionY);
                 CGContextAddLineToPoint(context, bottomLeftX + xStepHeight, postionY);
