@@ -24,6 +24,20 @@
     _chartView.xValueMin = 0;
     _chartView.xValueMax = 120;
     _chartView.xStepNum = 120;
+    _chartView.xPeriodFillNum = 12;
+    _chartView.xShowGraduation = ^(NSInteger index)
+    {
+        if(index<12)
+        {
+            return YES;
+        }
+        
+        if (index%12==0)
+        {
+            return YES;
+        }
+        return NO;
+    };
     _chartView.xShowLabel = ^(NSInteger index) {
         if (index % 12 == 0)
         {

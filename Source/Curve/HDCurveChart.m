@@ -63,7 +63,7 @@
     self.backgroundColor = [UIColor whiteColor];
     _chartLineArray = [NSMutableArray new];
     _chartPointArray = [NSMutableArray new];
-//    _chartFillArray = [NSMutableArray new];
+    //    _chartFillArray = [NSMutableArray new];
 
     _showCoordinateAxis = YES;
     _axisColor = [UIColor colorWithRed:0.533 green:0.533 blue:0.533 alpha:1];
@@ -76,6 +76,7 @@
     _xValueMax = 60;
     _xValueMin = 0;
     _xStepNum = 60;
+    _xPeriodFillNum = 2;
 
     _yValueMax = 25;
     _yValueMin = 0;
@@ -92,21 +93,21 @@
         _chartDatas = chartDatas;
         [_chartLineArray makeObjectsPerformSelector:@selector(removeFromSuperlayer)];
         [_chartPointArray makeObjectsPerformSelector:@selector(removeFromSuperlayer)];
-//        [_chartFillArray makeObjectsPerformSelector:@selector(removeFromSuperlayer)];
+        //        [_chartFillArray makeObjectsPerformSelector:@selector(removeFromSuperlayer)];
 
         // add lines
         for (HDCurveChartData *chartData in _chartDatas)
         {
 
             // create Fill Layer
-//            CAShapeLayer *chartFillLayer = [CAShapeLayer layer];
-//            chartFillLayer.lineCap = kCALineCapButt;
-//            chartFillLayer.lineJoin = kCALineJoinMiter;
-//            chartFillLayer.fillColor = [[UIColor clearColor] CGColor];
-//            chartFillLayer.lineWidth = chartData.lineWidth;
-//            chartFillLayer.strokeEnd = 0.0;
-//            [self.layer addSublayer:chartFillLayer];
-//            [_chartFillArray addObject:chartFillLayer];
+            //            CAShapeLayer *chartFillLayer = [CAShapeLayer layer];
+            //            chartFillLayer.lineCap = kCALineCapButt;
+            //            chartFillLayer.lineJoin = kCALineJoinMiter;
+            //            chartFillLayer.fillColor = [[UIColor clearColor] CGColor];
+            //            chartFillLayer.lineWidth = chartData.lineWidth;
+            //            chartFillLayer.strokeEnd = 0.0;
+            //            [self.layer addSublayer:chartFillLayer];
+            //            [_chartFillArray addObject:chartFillLayer];
 
             CAShapeLayer *chartLineLayer = [CAShapeLayer layer];
             chartLineLayer.lineCap = kCALineCapButt;
@@ -193,7 +194,12 @@
                                              minValue:_xValueMin
                                              maxValue:_xValueMax];
             xStepHeight = 2;
+            BOOL showXGraduation = NO;
             BOOL showXLabel = NO;
+            if (_xShowGraduation)
+            {
+                showXGraduation = _xShowGraduation(i);
+            }
             if (_xShowLabel)
             {
                 showXLabel = _xShowLabel(i);
@@ -214,15 +220,19 @@
                                                    labelSize.height)
                                    font:[UIFont systemFontOfSize:7]];
             }
-            CGContextMoveToPoint(context, postionX, bottomLeftY);
-            CGContextAddLineToPoint(context, postionX, bottomLeftY - xStepHeight);
-            CGContextStrokePath(context);
+            if (showXGraduation)
+            {
+                CGContextMoveToPoint(context, postionX, bottomLeftY);
+                CGContextAddLineToPoint(context, postionX, bottomLeftY - xStepHeight);
+                CGContextStrokePath(context);
+            }
             // fill background
-            if (i % 2 == 0)
+            if (i % _xPeriodFillNum == 0)
             {
                 CGContextSetFillColorWithColor(context, _fillColor.CGColor);
-                CGContextFillRect(
-                    context, CGRectMake(postionX, topLeftY, xStepWidth, bottomLeftY - topLeftY));
+                CGContextFillRect(context,
+                                  CGRectMake(postionX, topLeftY, xStepWidth * _xPeriodFillNum / 2,
+                                             bottomLeftY - topLeftY));
                 CGContextStrokePath(context);
             }
 
@@ -237,7 +247,12 @@
                                              maxValue:_yValueMax];
             xStepHeight = 2;
 
+            BOOL showYGraduation = NO;
             BOOL showYLabel = NO;
+            if (_yShowGraduation)
+            {
+                showYGraduation = _yShowGraduation(i);
+            }
             if (_yShowLabel)
             {
                 showYLabel = _yShowLabel(i);
@@ -255,9 +270,12 @@
                                  inRect:CGRectMake(bottomLeftX - 16, postionY - 5, 15, 10)
                                    font:[UIFont systemFontOfSize:7]];
             }
-            CGContextMoveToPoint(context, bottomLeftX, postionY);
-            CGContextAddLineToPoint(context, bottomLeftX + xStepHeight, postionY);
-            CGContextStrokePath(context);
+            if (_yShowGraduation)
+            {
+                CGContextMoveToPoint(context, bottomLeftX, postionY);
+                CGContextAddLineToPoint(context, bottomLeftX + xStepHeight, postionY);
+                CGContextStrokePath(context);
+            }
         }
     }
 
@@ -274,7 +292,7 @@
         HDCurveChartData *chartData = _chartDatas[lineIndex];
         CAShapeLayer *chartLineLayer = _chartLineArray[lineIndex];
         //        CAShapeLayer *pointLayer = _chartPointArray[lineIndex];
-//        CAShapeLayer *chartFillLayer = _chartFillArray[lineIndex];
+        //        CAShapeLayer *chartFillLayer = _chartFillArray[lineIndex];
 
         UIGraphicsBeginImageContext(self.bounds.size);
 
@@ -478,42 +496,45 @@
         chartLineLayer.path = progressLine.CGPath;
 
         // fill layer
-//        HDCurveChartDataItem *startItem = chartData.points[0];
-//        HDCurveChartDataItem *lastItem = chartData.points[pointCount - 1];
-//        CGFloat startX =
-//            [self postionXForValue:startItem.x minValue:_xValueMin maxValue:_xValueMax];
-//        CGFloat startY =
-//            [self postionYForValue:startItem.y minValue:_yValueMin maxValue:_yValueMax];
-//        CGFloat lastX = [self postionXForValue:lastItem.x minValue:_xValueMin maxValue:_xValueMax];
-//
-//        UIBezierPath *fillPath = [UIBezierPath bezierPath];
-//        for (NSUInteger i = 0; i < pointCount; i++)
-//        {
-//            HDCurveChartDataItem *item = chartData.points[i];
-//            x = [self postionXForValue:item.x minValue:_xValueMin maxValue:_xValueMax];
-//            y = [self postionYForValue:item.y minValue:_yValueMin maxValue:_yValueMax];
-//            if (i == 0)
-//            {
-//                [fillPath moveToPoint:CGPointMake(x, y)];
-//            }
-//            else
-//            {
-//                [fillPath addLineToPoint:CGPointMake(x, y)];
-//            }
-//        }
-//
-//        [fillPath
-//            addLineToPoint:CGPointMake(
-//                               lastX,
-//                               [self postionYForValue:0 minValue:_yValueMin maxValue:_yValueMax])];
-//        [fillPath
-//            addLineToPoint:CGPointMake(
-//                               startX,
-//                               [self postionYForValue:0 minValue:_yValueMin maxValue:_yValueMax])];
-//        [fillPath addLineToPoint:CGPointMake(startX, startY)];
-//
-//        [fillPath addLineToPoint:CGPointMake(startX, startY)];
-//        [fillPath stroke];
+        //        HDCurveChartDataItem *startItem = chartData.points[0];
+        //        HDCurveChartDataItem *lastItem = chartData.points[pointCount - 1];
+        //        CGFloat startX =
+        //            [self postionXForValue:startItem.x minValue:_xValueMin maxValue:_xValueMax];
+        //        CGFloat startY =
+        //            [self postionYForValue:startItem.y minValue:_yValueMin maxValue:_yValueMax];
+        //        CGFloat lastX = [self postionXForValue:lastItem.x minValue:_xValueMin
+        //        maxValue:_xValueMax];
+        //
+        //        UIBezierPath *fillPath = [UIBezierPath bezierPath];
+        //        for (NSUInteger i = 0; i < pointCount; i++)
+        //        {
+        //            HDCurveChartDataItem *item = chartData.points[i];
+        //            x = [self postionXForValue:item.x minValue:_xValueMin maxValue:_xValueMax];
+        //            y = [self postionYForValue:item.y minValue:_yValueMin maxValue:_yValueMax];
+        //            if (i == 0)
+        //            {
+        //                [fillPath moveToPoint:CGPointMake(x, y)];
+        //            }
+        //            else
+        //            {
+        //                [fillPath addLineToPoint:CGPointMake(x, y)];
+        //            }
+        //        }
+        //
+        //        [fillPath
+        //            addLineToPoint:CGPointMake(
+        //                               lastX,
+        //                               [self postionYForValue:0 minValue:_yValueMin
+        //                               maxValue:_yValueMax])];
+        //        [fillPath
+        //            addLineToPoint:CGPointMake(
+        //                               startX,
+        //                               [self postionYForValue:0 minValue:_yValueMin
+        //                               maxValue:_yValueMax])];
+        //        [fillPath addLineToPoint:CGPointMake(startX, startY)];
+        //
+        //        [fillPath addLineToPoint:CGPointMake(startX, startY)];
+        //        [fillPath stroke];
 
         //        chartFillLayer.frame = self.bounds;
         //        chartFillLayer.path = fillPath.CGPath;
@@ -533,12 +554,12 @@
         pathAnimation.toValue = @1.0f;
 
         [chartLineLayer addAnimation:pathAnimation forKey:@"strokeEndAnimation"];
-        chartLineLayer.strokeEnd = 1.0;
 
-//        [chartFillLayer addAnimation:pathAnimation forKey:@"strokeEndAnimation"];
+        //        [chartFillLayer addAnimation:pathAnimation forKey:@"strokeEndAnimation"];
         //        chartFillLayer.strokeEnd = 1.0;
 
         [CATransaction commit];
+        chartLineLayer.strokeEnd = 1.0;
         UIGraphicsEndImageContext();
     }
 }
