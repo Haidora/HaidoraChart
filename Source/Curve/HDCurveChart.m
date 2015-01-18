@@ -94,7 +94,8 @@
         [_chartLineArray makeObjectsPerformSelector:@selector(removeFromSuperlayer)];
         [_chartPointArray makeObjectsPerformSelector:@selector(removeFromSuperlayer)];
         //        [_chartFillArray makeObjectsPerformSelector:@selector(removeFromSuperlayer)];
-
+        [_chartLineArray removeAllObjects];
+        [_chartPointArray removeAllObjects];
         // add lines
         for (HDCurveChartData *chartData in _chartDatas)
         {
